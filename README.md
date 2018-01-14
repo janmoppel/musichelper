@@ -39,12 +39,12 @@ cmake --build . --config Release --target install
 ```
 
 Either of these methods will create a MITIE shared library in the mitielib folder. 
-Once you have built the MITIE shared library, you can go to the [examples/python](examples/python) folder and run .py scripts there.
+Once you have built the MITIE shared library, you can go to the [MITIE/examples/python](MITIE/examples/python) folder and run .py scripts there.
 
 ### LastFM API key adding
 
 In order to use this chatbot you'll need LastFM API key. Get it here: https://www.last.fm/api. 
-Once you have it, navigate to examples/python/chat_ai.py, find a variable named "API" and write down your API key.
+Once you have it, navigate to MITIE/examples/python/chat_ai.py, find a variable named "API" and write down your API key.
 
 ### Chatbot running
-When you've done all the steps above simply run chatterbot.py or chatterbot_gui.py from the [examples/python](examples/python) folder.
+When you've done all the steps above simply run chatterbot.py or chatterbot_gui.py from the [MITIE/examples/python](MITIE/examples/python) folder. It'll take ~40 min to train and create new model. When you'll have a model, you can just comment the line corresponding for training in chatterbot.py and chatterbot_gui.py.
