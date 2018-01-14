@@ -12,7 +12,15 @@ Next instruction was partly taken from the official MITIE repository (https://gi
 
 ### Initial Setup
 
-Before you can run the provided examples you will need to compile MITIE as a shared library.
+Before you can run the provided examples you will need to download the trained
+model files which you can do by running:
+```
+make MITIE-models
+```
+or by simply downloading the [MITIE-models-v0.2.tar.bz2](https://github.com/mit-nlp/MITIE/releases/download/v0.4/MITIE-models-v0.2.tar.bz2)
+file and extracting it in your MITIE folder.
+
+### Compiling MITIE as a shared library
 
 On a UNIX like system, this can be accomplished by running `make` in the top level MITIE folder or
 by running:
