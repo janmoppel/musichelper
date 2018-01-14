@@ -1,5 +1,4 @@
 # Music helper chatbot using NLP
-=====
 
 This project is built using MITIE: MIT Information Extraction (https://github.com/mit-nlp/MITIE) and Last FM API (https://www.last.fm/api).
 
@@ -9,7 +8,7 @@ Using MITIE bot analyzes user's input and then sends a request using Last FM API
 
 # Using Music Helper
 
-Next instruction was originally taken from the official MITIE repository (https://github.com/mit-nlp/MITIE).
+Next instruction was partly taken from the official MITIE repository (https://github.com/mit-nlp/MITIE).
 
 ### Initial Setup
 
@@ -32,13 +31,12 @@ cmake --build . --config Release --target install
 ```
 
 Either of these methods will create a MITIE shared library in the mitielib folder. 
+Once you have built the MITIE shared library, you can go to the [examples/python](examples/python) folder and run .py scripts there.
 
-### Using MITIE from a Python program
+### LastFM API key adding
 
-Once you have built the MITIE shared library, you can go to the [examples/python](examples/python) folder
-and simply run any of the Python scripts.
+In order to use this chatbot you'll need LastFM API key. Get it here: https://www.last.fm/api. 
+Once you have it, navigate to examples/python/chat_ai.py, find a variable named "API" and write down your API key.
 
-If you are using a UNIX system, you can also install ``mitie`` package direcly from github:
-``pip install git+https://github.com/mit-nlp/MITIE.git``.
-
-If you are using Windows then compile MITIE using the CMake instructions shown above.
+### Chatbot running
+When you've done all the steps above simply run chatterbot.py or chatterbot_gui.py from the [examples/python](examples/python) folder.
