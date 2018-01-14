@@ -1,6 +1,6 @@
 # Music helper chatbot using NLP
 
-This project is built using MITIE: MIT Information Extraction (https://github.com/mit-nlp/MITIE) and Last FM API (https://www.last.fm/api).
+This project is built using MITIE: [MIT Information Extraction] (https://github.com/mit-nlp/MITIE) and [Last FM API] (https://www.last.fm/api).
 
 Music helper chatbot is a simple python chatbot, which provides brief information about artists, albums, songs and tags. 
 Using MITIE bot analyzes user's input and then sends a request using Last FM API. Then bot analyzes received document in JSON format and provides user requested information.
