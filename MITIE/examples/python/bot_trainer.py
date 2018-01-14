@@ -305,7 +305,6 @@ def train():
                 "What's the most popular song right now",
                 "recommend a song like \"Stairway to Heaven\"",  # " Stairway - person; # to Heaven - person
                 "i like Post Malone",   # end
-
                 "Recommend me some songs by Frank Sinatra",
                 "Recommend me something from Frank Sinatra",
                 "Now recommend me some music to listen to"

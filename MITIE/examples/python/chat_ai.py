@@ -60,6 +60,16 @@ def getResponse(text):
 
     # Kontrollime, mis ülesanne robotil olemas
     if task[1] == '2':  # Artisti nimi on puudu
+        # Kui kasutaja ei tea artisti nimi
+        if predicted_label == 'deny':
+            if task[0] == '4':  #  Ülesanne - leida loo autori
+                freim['task'] = '00'  # Paneme taski tagasi 0 väärtuseks
+                return getArtistBySong()
+
+            elif task[0] == '7':  # Leida info albumi kohta
+                freim['task'] = '00'  # Paneme taski tagasi 0 väärtuseks
+                return getAlbumByTitle()
+
         freim['task'] = '00'  # Paneme taski tagasi 0 väärtuseks
         try:
             artist_name = " ".join(tokens[i] for i in entities[0][0])   # Kui oleme siin, siis kasutaja
@@ -577,6 +587,40 @@ def getTopSongs():
         # Lisame laulu ja artisti nime tulevikuks freimile
         freim['song'].append(track['name'])
         freim['artist'].append(track['artist']['name'])
+
+    return response
+
+
+# Otsime albumi
+def getAlbumByTitle():
+    # Viimane album freimis on see, mida kasutaja pani viimasena kirja
+    album = freim['album'][-1]
+
+    # Kasutame vajalikku meetodi
+    file = urllib.request.urlopen('http://ws.audioscrobbler.com/2.0/?method=album.search&album=' +
+                                  urllib.parse.quote(album) + '&api_key=' + urllib.parse.quote(API) +
+                                  '&format=json')
+
+    # Juhul kui viga ei ole -> jätkame
+    try:
+        albums = json.loads(file.read().decode())['results']["albummatches"]['album']
+
+        # Juhul, kui leidsime mingeid albumeid
+        if len(albums) != 0:
+            response = "I could find these " + str(len(albums)) + " artists, who wrote albums with the title " + \
+                       str(album) + ":\n"
+            for i in range(len(albums)):
+                # Valime albumi
+                title = albums[i]
+                response += "- \"" + title["artist"] + "\" \n"
+            return response
+    except:
+        pass
+
+    # Kui oleme siin, siis päring vastas veaga või ei leidnud ühtegi artisti
+    response = "Sorry, but I couldn't find an author of that album"
+    # Kui robot ei saanud leida artisti selle albumi kaudu, siis kustutame meie "andmebaasist" loost igasugune info
+    del freim['album'][-1]
 
     return response
 
